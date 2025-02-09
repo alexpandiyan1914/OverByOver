@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OverByOver - Cricket Score Tracker</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .container { width: 90%; max-width: 500px; margin: auto; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid black; padding: 8px; text-align: center; }
+        .btn { padding: 10px; margin: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>OverByOver - Cricket Score Tracker</h2>
+        <div id="setup">
+            <label>Team 1 Name:</label>
+            <input type="text" id="team1"><br>
+            <label>Team 2 Name:</label>
+            <input type="text" id="team2"><br>
+            <label>Overs:</label>
+            <input type="number" id="overs" min="1"><br>
+            <button class="btn" onclick="startMatch()">Start Match</button>
+        </div>
+
+        <div id="match" style="display: none;">
+            <h3 id="currentInnings">Batting: Team 1</h3>
+            <h2 id="score">0/0</h2>
+            <div>
+                <button class="btn" onclick="updateScore(1)">1</button>
+                <button class="btn" onclick="updateScore(2)">2</button>
+                <button class="btn" onclick="updateScore(3)">3</button>
+                <button class="btn" onclick="updateScore(4)">4</button>
+                <button class="btn" onclick="updateScore(6)">6</button>
+                <button class="btn" onclick="updateWicket()">OUT</button>
+            </div>
+            <table id="scoreTable">
+                <thead>
+                    <tr><th>Over</th><th>Balls</th></tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script>
+        function startMatch() {
+            document.getElementById("setup").style.display = "none";
+            document.getElementById("match").style.display = "block";
+        }
+
+        function updateScore(runs) {
+            console.log("Runs Scored:", runs);
+        }
+
+        function updateWicket() {
+            console.log("Wicket fallen!");
+        }
+    </script>
+</body>
+</html>

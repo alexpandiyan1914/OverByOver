@@ -1,0 +1,40 @@
+body {
+    margin: 0%;
+    padding: 0%;
+}
+
+#container {
+    display: inline-block;
+    justify-items: center;
+    margin-top: 200px;
+    margin-left: 610px;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 50px;
+}
+
+.txt_feild {
+    size: bold;
+}
+
+#team1,
+#team2 {
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#submit_button{
+    border-radius: 2px;
+    color: black;
+    background-color: rgb(203, 255, 255);
+    padding: 5px;
+}
+#submit_button:hover{
+    background-color: aquamarine;
+
+}
+@media screen and (max-width: 480px) {
+    body {
+      background-color: lightgreen;
+    }
+  }
