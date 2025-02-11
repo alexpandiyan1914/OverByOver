@@ -10,12 +10,12 @@
     <script src='main.js'></script>
 </head>
 
-<body>
+<body class="index_body">
     <div id="container">
         <h2 class="title_des">OverByOver</h2>
         <h3 class="title_des">Cricket Score Tracker</h3>
 
-        <form method="get" id="Form">
+        <form method="get" id="Form" onsubmit='return setTeamNames()' action="scorecard.html">
             <!-- <label for="team1" class="txt_feild">Team 1:</label> -->
             <input type="text" id="team1" name="team1" placeholder="Enter Team 1"><br><br>
             <!-- <label for="team2" class="txt_feild">Team 2:</label> -->

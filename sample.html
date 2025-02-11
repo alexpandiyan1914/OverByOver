@@ -3,61 +3,96 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OverByOver - Cricket Score Tracker</title>
+    <title>OverByOver - Score Tracker</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        .container { width: 90%; max-width: 500px; margin: auto; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid black; padding: 8px; text-align: center; }
-        .btn { padding: 10px; margin: 5px; cursor: pointer; }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .scoreboard {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        button {
+            font-size: 18px;
+            margin: 5px;
+            padding: 10px;
+        }
+        input {
+            font-size: 18px;
+            padding: 5px;
+            margin: 5px;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>OverByOver - Cricket Score Tracker</h2>
-        <div id="setup">
-            <label>Team 1 Name:</label>
-            <input type="text" id="team1"><br>
-            <label>Team 2 Name:</label>
-            <input type="text" id="team2"><br>
-            <label>Overs:</label>
-            <input type="number" id="overs" min="1"><br>
-            <button class="btn" onclick="startMatch()">Start Match</button>
-        </div>
 
-        <div id="match" style="display: none;">
-            <h3 id="currentInnings">Batting: Team 1</h3>
-            <h2 id="score">0/0</h2>
-            <div>
-                <button class="btn" onclick="updateScore(1)">1</button>
-                <button class="btn" onclick="updateScore(2)">2</button>
-                <button class="btn" onclick="updateScore(3)">3</button>
-                <button class="btn" onclick="updateScore(4)">4</button>
-                <button class="btn" onclick="updateScore(6)">6</button>
-                <button class="btn" onclick="updateWicket()">OUT</button>
-            </div>
-            <table id="scoreTable">
-                <thead>
-                    <tr><th>Over</th><th>Balls</th></tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
+    <h1>OverByOver - Live Score Tracker</h1>
+
+    <!-- Section to enter team names -->
+    <div id="teamInput">
+        <input type="text" id="team1" placeholder="Enter Team 1 Name">
+        <input type="text" id="team2" placeholder="Enter Team 2 Name">
+        <button onclick="setTeams()">Start Match</button>
     </div>
-    
+
+    <!-- Team names display -->
+    <h2 id="matchTitle" style="display: none;">Team1 vs Team2</h2>
+
+    <!-- Scoreboard -->
+    <div class="scoreboard">
+        <p>Runs: <span id="runs">0</span></p>
+        <p>Wickets: <span id="wickets">0</span></p>
+        <p>Overs: <span id="overs">0.0</span></p>
+    </div>
+
+    <!-- Score update buttons -->
+    <div>
+        <button onclick="updateScore(0)">Dot Ball</button>
+        <button onclick="updateScore(1)">1 Run</button>
+        <button onclick="updateScore(2)">2 Runs</button>
+        <button onclick="updateScore(3)">3 Runs</button>
+        <button onclick="updateScore(4)">4 Runs</button>
+        <button onclick="updateScore(6)">6 Runs</button>
+        <button onclick="updateScore('Out')">Wicket</button>
+    </div>
+
     <script>
-        function startMatch() {
-            document.getElementById("setup").style.display = "none";
-            document.getElementById("match").style.display = "block";
+        let runs = 0, wickets = 0, balls = 0, overs = 0;
+
+        // Function to set team names
+        function setTeams() {
+            let team1 = document.getElementById("team1").value;
+            let team2 = document.getElementById("team2").value;
+            
+            if (team1.trim() === "" || team2.trim() === "") {
+                alert("Please enter both team names!");
+                return;
+            }
+
+            document.getElementById("matchTitle").innerText = `${team1} vs ${team2}`;
+            document.getElementById("matchTitle").style.display = "block";
+            document.getElementById("teamInput").style.display = "none"; // Hide input after setting teams
         }
 
-        function updateScore(runs) {
-            console.log("Runs Scored:", runs);
-        }
-
-        function updateWicket() {
-            console.log("Wicket fallen!");
+        // Function to update score
+        function updateScore(run) {
+            if (run === "Out") {
+                wickets++;
+            } else {
+                runs += run;
+            }
+            balls++;
+            if (balls % 6 === 0) {
+                overs++;
+                balls = 0;
+            }
+            document.getElementById("runs").innerText = runs;
+            document.getElementById("wickets").innerText = wickets;
+            document.getElementById("overs").innerText = `${overs}.${balls}`;
         }
     </script>
+
 </body>
 </html>

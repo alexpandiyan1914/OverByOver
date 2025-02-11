@@ -1,4 +1,5 @@
-body {
+/*index page starts*/
+.index_body {
     display: flex;
     margin: 0%;
     padding: 0%;
@@ -18,9 +19,10 @@ body {
     color: white;
     background: transparent;
     backdrop-filter: blur(10px);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#over{
+#over {
     padding: 10px;
     border-radius: 2px;
     background: transparent;
@@ -29,8 +31,13 @@ body {
     height: 100%; */
 
 }
-#over{color: white;}
-#over::placeholder{
+
+#over {
+    color: white;
+    outline: none;
+}
+
+#over::placeholder {
     color: white;
 }
 
@@ -43,34 +50,52 @@ body {
     color: white;
     width: 92%;
     height: 92%;
-    text-size-adjust: 100%;
-}
-#team1::placeholder,#team2::placeholder{
-    color: white;
-}
-#team1:focus,#team2:focus,#over:focus{
-    transition: 0.7s ease;
-    background:#A1E3F9 ;
-    color: black;
-    border-style: dotted;
+    outline: none;
 }
 
-#submit_button{
+#team1::placeholder,
+#team2::placeholder {
+    color: white;
+}
+
+#submit_button {
     margin-left: 10px;
     border: 2px solid white;
     border-radius: 2px;
     color: white;
-    background:transparent;
+    background: transparent;
     padding: 10px;
     transition: 0.5s ease;
- 
-}
-#submit_button:hover{
-    background-color:#578FCA;
 
 }
-@media screen and (max-width: 480px) {
-    body {
-      background-color: lightgreen;
-    }
-  }
+
+#submit_button:hover {
+    background-color: white;
+    color: black;
+
+}
+
+/*index page ends*/
+
+.scorecard_body{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+#scoreboard{
+    border: 2px solid black;
+    padding: 30px;
+    width: 100px;
+    display: block;
+    justify-content: center;
+}
+
+
+.team-names {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
