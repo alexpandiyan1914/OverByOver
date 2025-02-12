@@ -3,9 +3,9 @@
     display: flex;
     margin: 0%;
     padding: 0%;
-    background-image: url('images/dhoni.jpg');
     background-repeat: no-repeat;
     background-size: cover;
+    transition: background 1s ease-in-out;
 }
 
 #container {
@@ -13,7 +13,7 @@
     justify-items: center;
     margin-top: 200px;
     margin-left: 1050px;
-    border: 2px solid white;
+    border: 3px solid white;
     border-radius: 1px;
     padding: 50px;
     color: white;
@@ -81,34 +81,61 @@
     margin: 0px;
     padding: 0px;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 50vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: background 1s ease-in-out;
+    background-color: #3674B5;
 }
 .scorecard_container{
     text-align: center;
     background: white;
-    margin-top: 150px;
+    margin-top: 350px;
+    margin-left:110px;
     padding-left: 70px;
     padding-right: 70px;
     padding-top: 30px;
     padding-bottom: 30px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
-/* 
-#scoreboard{
-    border: 2px solid black;
-    padding: 30px;
-    width: 100px;
-    display: block;
-    justify-content: center;
-} */
 
 .run_buttons{
-    justify-content: center;  /* Centers horizontally */
-    gap: 10px; /* Adds space between buttons */
-    margin-top: 20px;
+    justify-content: center;
+    align-items: center;  
+    flex-direction: column;
+    gap: 10px; 
+    margin-top: 350px;
+    padding: 15px 200px 25px 200px;
+    margin-left: 100px;
+}
+.btns_run{
+    padding: 9px 30px;
+    margin: 10px;
+    margin-right: 10px;
+    min-width: 25%;
+
+}
+.btns{
+    padding: 10px 120px 10px 90px;
+    margin-left: 10px;
+    min-width: 93%;
+    text-align: center;
+    outline: none;
+    background-color:#3674B5;
+    border: 2px solid white;
+    color: white;
+    transition: all 0.7s ease;
 }
 
+.btns:hover{
+    background-color: white;
+    border: 2px solid #3674B5;
+    color: black;
+}
+
+#wide,#out,#undo,#next  {
+    margin-bottom: 10px;
+}
