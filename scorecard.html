@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Score Card</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
+    <!-- <script src='main.js'></script> -->
 </head>
+
 <body class="scorecard_body">
 
     <div class="scorecard_container">
@@ -15,14 +17,27 @@
         <div class="team-names">
             <span id="team11">Team A</span> vs <span id="team22">Team B</span>
         </div>
-        
+
         <div id="scoreboard">
             <h1><span id="runs">0</span>/<span id="wickets">0</span></h1>
-            <p>over<span id="over">0.0</span></p>
-
+            <p>over<span id="over" style="color: black;">0.0</span></p>
         </div>
+    </div>
+    <div class="run_buttons">
+        <button class="btns">Dot Ball</button><br>
+        <button class="btns_run">1</button>
+        <button class="btns_run">2</button>
+        <button class="btns_run">3</button><br>
+        <button class="btns_run">4</button>
+        <button class="btns_run">5</button>
+        <button class="btns_run">6</button><br>
+        <button class="btns">Wide</button><br>
+        <button class="btns">Out</button><br>
+        <button class="btns">Undo</button><br>
+        <button class="btns">Next Ball</button>
 
     </div>
-    
+
 </body>
+
 </html>
