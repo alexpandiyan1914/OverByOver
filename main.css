@@ -1,3 +1,9 @@
+* {
+    font-family: "Parkinsans", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
 /*index page starts*/
 .index_body {
     display: flex;
@@ -78,7 +84,7 @@
 
 /*index page ends*/
 
-.scorecard_body{
+.scorecard_body {
     margin: 0px;
     padding: 0px;
     display: flex;
@@ -90,11 +96,12 @@
     background-size: cover;
     /* background-color: #3674B5; */
 }
-.scorecard_container{
+
+.scorecard_container {
     text-align: center;
     background: #E2F1E7;
     margin-top: 350px;
-    margin-left:110px;
+    margin-left: 110px;
     padding-left: 70px;
     padding-right: 70px;
     padding-top: 30px;
@@ -103,11 +110,11 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.run_buttons{
+.run_buttons {
     justify-content: center;
-    align-items: center;  
+    align-items: center;
     flex-direction: column;
-    gap: 10px; 
+    gap: 10px;
     margin-top: 350px;
     padding: 15px 30px 25px 30px;
     margin-left: 100px;
@@ -118,55 +125,63 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.btns_run{
+.btns_run {
     padding: 9px 30px;
     margin: 10px;
     margin-right: 10px;
     min-width: 25%;
     text-align: center;
     outline: none;
-    background-color:#387478;;
+    background-color: #387478;
+    ;
     border: 2px solid #E2F1E7;
     color: white;
     transition: all 0.7s ease;
 
 }
 
-#calculate_head{
+#calculate_head {
     text-align: center;
     color: #E2F1E7;
 }
 
-.btns_run:hover{
+.btns_run:hover {
     background-color: #E2F1E7;
-    border: 2px solid #387478;;
+    border: 2px solid #387478;
+    ;
     color: black;
     transform: scale(1.2);
 
 }
-.btns{
+
+.btns {
     padding: 10px 120px 10px 90px;
     margin-left: 10px;
     min-width: 93%;
     text-align: center;
+    align-content: center;
     outline: none;
-    background-color:#387478;
+    background-color: #387478;
     border: 2px solid #E2F1E7;
     color: white;
     transition: all 0.5s ease;
     margin-top: 5px;
 }
-#dot{
+
+#dot {
     margin-bottom: 5px;
 }
 
-.btns:hover{
+.btns:hover {
     background-color: #E2F1E7;
     border: 2px solid #E2F1E7;
     color: black;
     transform: scale(1.1);
 }
 
-#wide,#out,#undo,#next  {
+#wide,
+#out,
+#undo,
+#next {
     margin-bottom: 10px;
 }
