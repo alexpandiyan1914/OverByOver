@@ -17,19 +17,21 @@ header{
     justify-content: space-between;
     align-items: center;
     padding: 15px 3%;
-    background-color: #113f67;
+    background: linear-gradient(to left, #0D1B2A, #1B263B, #415A77);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
 .nav-link a{
     text-decoration: none;
-    color:#ececec;
+    color:#F8F8F8;
     transition: all 0.5s ease;
 }
 .nav-link a:hover{
-    color: #9fd3c7;
+    color: #00C3FF;
+    text-shadow: 0px 0px 15px #00C3FF;
     transform: scale(1.1);
 }
 header a{
-    color:#ececec;
+    color:#f8f8f8;
     text-decoration: none;
 }
 .logo{
@@ -49,13 +51,14 @@ header a{
 }
 .logout{
     padding: 5px 13px;
-    background-color: #ececec;
-    color: #113f67;
+    background: linear-gradient(to right, #0D1B2A, #1B263B, #415A77);
+    color: #f8f8f8;
     border-radius: 50px;
     transition: all 0.5s ease;
 }
 .logout:hover{
     filter: brightness(0.8);
+    box-shadow: 0px 0px 15px #00C3FF;
 }
 /*Nav bar end*/
 /*scorecard page start*/
@@ -66,9 +69,11 @@ header a{
 }
 .scorecard_container{
     text-align: center;
-    background: #E2F1E7;
+    background: #E0E1DD;
     padding: 30px 40px;
+    border: 2px solid #415A77;
     border-radius: 10px;
+    color: #14274E;
     /* margin-right: 650px;
     margin-left: 650px;
     margin-top: 30px; */
@@ -105,18 +110,29 @@ header a{
     text-align: center;
     align-content: center;
     outline: none;
-    background-color: #385170;
-    border: 2px solid #ececec;
+    background-color:  #1B263B;
+    border: 1px solid #F8F8F8;
     border-radius: 0;
-    color: white;
+    color: #F8F8F8;
     vertical-align: middle;
     transition: all 0.5s ease;
     margin-top: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
+#next:hover{
+    background-color: #4CAF50;
+    border: 1px solid #4CAF50;
+    box-shadow: 0px 0px 15px #4CAF50;
+}
+#out:hover{
+    background-color: #FF6B6B;
+    box-shadow: 0px 0px 15px #FF6B6B;
+    border: 1px solid #FF6B6B;
+}
 .btns:hover {
-    background-color: #E2F1E7;
-    border: 2px solid #E2F1E7;
+    background-color: #00C3FF;
+    box-shadow: 0px 0px 15px #00C3FF;
+    border: 2px solid #00C3FF;
     color: black;
     transform: scale(1.1);
 }
@@ -127,28 +143,30 @@ header a{
     min-width: 25%;
     text-align: center;
     outline: none;
-    background-color: #385170;
+    background-color: #14274E;
     border-radius: 20px;
-    border: 2px solid #E2F1E7;
+    border:1px solid #F8F8F8;
     color: white;
     vertical-align: middle;
     transition: all 0.7s ease;
 }
 .btns_run:hover {
-    background-color: #E2F1E7;
-    border: 2px solid #385170;
+    background-color: #00C3FF;
+    border: none;
+    box-shadow: 0px 0px 15px #00C3FF;
     color: black;
     transform: scale(1.2);
 }
 
 /*footer starts*/
 footer{
-    background-color: #385170;
+    background: linear-gradient(to right, #0D1B2A, #1B263B, #415A77);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
     padding: 30px 20px;
     margin-top: 30px;
 }
 footer h4{
-    color: #ececec;
+    color: #f8f8f8;
     font-weight: lighter;
     text-align: center;
 }

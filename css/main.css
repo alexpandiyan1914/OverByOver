@@ -1,10 +1,11 @@
+/*
 * {
     font-family: "Parkinsans", serif;
     font-optical-sizing: auto;
     font-style: normal;
 }
 
-/*index page starts*/
+/*index page starts
 .index_body {
     display: flex;
     margin: 0%;
@@ -34,7 +35,7 @@
     background: transparent;
     border: 2px solid white;
     /* width: 100%;
-    height: 100%; */
+    height: 100%; 
 
 }
 
@@ -81,5 +82,139 @@
     transform: scale(1.1);
 
 }
+index page ends*/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Parkinsans", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+body{
+    background-image: url('../images/dhoni.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
-/*index page ends*/
+/*Nav bar start*/
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 3%;
+    background: linear-gradient(to left, #0D1B2A, #1B263B, #415A77);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+.nav-link a{
+    text-decoration: none;
+    color:#F8F8F8;
+    transition: all 0.5s ease;
+}
+.nav-link a:hover{
+    color: #00C3FF;
+    text-shadow: 0px 0px 15px #00C3FF;
+    transform: scale(1.1);
+}
+header a{
+    color:#f8f8f8;
+    text-decoration: none;
+}
+.logo{
+    cursor: pointer;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.nav-link{
+    list-style-type: none;
+}
+.nav-link li{
+    display: inline-block;
+    padding: 5px 15px;
+
+}
+.logout{
+    padding: 5px 13px;
+    background: linear-gradient(to right, #0D1B2A, #1B263B, #415A77);
+    color: #f8f8f8;
+    border-radius: 50px;
+    transition: all 0.5s ease;
+}
+.logout:hover{
+    filter: brightness(0.8);
+    box-shadow: 0px 0px 15px #00C3FF;
+}
+/*Nav bar end*/
+/*footer starts*/
+footer{
+    background: linear-gradient(to right, #0D1B2A, #1B263B, #415A77);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    padding: 30px 20px;
+    margin-top: 30px;
+}
+footer h4{
+    color: #f8f8f8;
+    font-weight: lighter;
+    text-align: center;
+}
+/*footer ends*/
+
+#container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+    width: 400px;
+    margin-left: 600px;
+    margin-top: 120px;
+    border: 2px solid #f8f8f8;
+    border-radius: 20px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.login{
+    width: 100%;
+    padding: 40px;
+}
+.title_des{
+    text-align: center;
+}
+
+.team-names{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom:2px solid #1B263B ;
+    margin: 30px 0;
+}
+.team-names label{
+    position: absolute;
+    top: 50%;
+    left: 1px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    pointer-events:none;
+    transition: 0.5s ease;
+}
+.team-names input:focus ~ label,
+.team-names input:valid ~ label {
+    top: -5px;
+}
+.team-names input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1.1em;
+    padding: 0 25px 0 0;
+}
+.team-names .icons{
+    position: absolute;
+    right: 10px;
+    bottom: 6px;
+    font-size: 1.3em;
+}

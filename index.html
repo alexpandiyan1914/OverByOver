@@ -9,25 +9,45 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
-    <script src='js/main.js'></script>
+    <!-- <script src='js/main.js'></script> -->
 </head>
 
 <body class="index_body">
+    <header>
+        <a href="#" class="logo">OverByOver</a>
+        <nav>
+            <ul class="nav-link">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Score Card</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </header>
     <div id="container">
-        <h2 class="title_des">OverByOver</h2>
-        <h3 class="title_des">Cricket Score Tracker</h3>
-
-        <form method="get" id="Form" onsubmit='return setTeamNames()' action="scorecard.html">
-            <!-- <label for="team1" class="txt_feild">Team 1:</label> -->
-            <input type="text" id="team1" name="team1" placeholder="Enter Team 1"><br><br>
-            <!-- <label for="team2" class="txt_feild">Team 2:</label> -->
-            <input type="text" id="team2" name="team2" placeholder="Enter Team 2"><br><br>
-            <input type="number" placeholder="Overs ?" id="over" name="over">
-            <input type="submit" value="Start match" id="submit_button">
-        </form>
-
+        <div class="login">
+            <h2 class="title_des">OverByOver</h2>
+            <h3 class="title_des">Cricket Score Tracker</h3>
+            <form method="get" id="Form" onsubmit='return setTeamNames()' action="scorecard.html">
+                <div class="team-names">
+                    <span class="icons"><i class="fa-solid fa-people-group"></i></span>
+                    <input type="text" id="team1" name="team1" required>
+                    <label>Enter Team Name</label>
+                </div>
+                <div class="team-names">
+                    <span class="icons"><i class="fa-solid fa-people-group"></i></span>
+                    <input type="text" id="team2" name="team2" required>
+                    <label>Enter Team Name</label>
+                </div>
+                <div class="over-box">
+                    <input type="number" placeholder="Overs ?" id="over" name="over">
+                    <input type="submit" value="Start match" id="submit_button">
+                </div>
+            </form>
+        </div>
     </div>
+
 
 </body>
 
