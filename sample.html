@@ -19,10 +19,14 @@
             margin: 5px;
             padding: 10px;
         }
-        input {
+        input, select {
             font-size: 18px;
             padding: 5px;
             margin: 5px;
+        }
+        .last-balls {
+            font-size: 20px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -30,11 +34,24 @@
 
     <h1>OverByOver - Live Score Tracker</h1>
 
-    <!-- Section to enter team names -->
+    <!-- Section to enter team names and overs -->
     <div id="teamInput">
         <input type="text" id="team1" placeholder="Enter Team 1 Name">
         <input type="text" id="team2" placeholder="Enter Team 2 Name">
+        <select id="oversSelect">
+            <option value="1">1 Over</option>
+            <option value="2">2 Overs</option>
+            <option value="5">5 Overs</option>
+            <option value="10">10 Overs</option>
+        </select>
         <button onclick="setTeams()">Start Match</button>
+    </div>
+
+    <!-- Toss Section -->
+    <div id="tossSection" style="display: none;">
+        <h2>Toss Time!</h2>
+        <button onclick="tossCoin()">Toss</button>
+        <p id="tossResult"></p>
     </div>
 
     <!-- Team names display -->
@@ -42,9 +59,16 @@
 
     <!-- Scoreboard -->
     <div class="scoreboard">
+        <p>Batting: <span id="battingTeam">-</span></p>
         <p>Runs: <span id="runs">0</span></p>
         <p>Wickets: <span id="wickets">0</span></p>
-        <p>Overs: <span id="overs">0.0</span></p>
+        <p>Overs: <span id="overs">0.0</span> / <span id="totalOvers">0</span></p>
+    </div>
+
+    <!-- Last 6 Balls Display -->
+    <div class="last-balls">
+        <strong>Last 6 Balls:</strong>
+        <p id="lastBalls">-</p>
     </div>
 
     <!-- Score update buttons -->
@@ -56,41 +80,121 @@
         <button onclick="updateScore(4)">4 Runs</button>
         <button onclick="updateScore(6)">6 Runs</button>
         <button onclick="updateScore('Out')">Wicket</button>
+        <button onclick="undoLast()">Undo</button>
     </div>
 
     <script>
-        let runs = 0, wickets = 0, balls = 0, overs = 0;
+        let runs = 0, wickets = 0, balls = 0, overs = 0, totalOvers = 0;
+        let lastSixBalls = []; // Stores last 6 balls
+        let history = []; // Stores history for undo
+        let battingTeam = "";
+        let team1 = "", team2 = "", teamBattingFirst = "", teamBattingSecond = "";
+        let isFirstInnings = true;
 
         // Function to set team names
         function setTeams() {
-            let team1 = document.getElementById("team1").value;
-            let team2 = document.getElementById("team2").value;
-            
-            if (team1.trim() === "" || team2.trim() === "") {
+            team1 = document.getElementById("team1").value.trim();
+            team2 = document.getElementById("team2").value.trim();
+            totalOvers = parseInt(document.getElementById("oversSelect").value);
+
+            if (team1 === "" || team2 === "") {
                 alert("Please enter both team names!");
                 return;
             }
 
             document.getElementById("matchTitle").innerText = `${team1} vs ${team2}`;
             document.getElementById("matchTitle").style.display = "block";
-            document.getElementById("teamInput").style.display = "none"; // Hide input after setting teams
+            document.getElementById("teamInput").style.display = "none";
+            document.getElementById("tossSection").style.display = "block";
+            document.getElementById("totalOvers").innerText = totalOvers;
+        }
+
+        // Function for Toss
+        function tossCoin() {
+            let tossWinner = Math.random() < 0.5 ? team1 : team2;
+            teamBattingFirst = tossWinner;
+            teamBattingSecond = tossWinner === team1 ? team2 : team1;
+            battingTeam = teamBattingFirst;
+            document.getElementById("battingTeam").innerText = battingTeam;
+            document.getElementById("tossResult").innerText = `${tossWinner} wins the toss and chooses to bat first!`;
+            document.getElementById("tossSection").style.display = "none";
         }
 
         // Function to update score
         function updateScore(run) {
+            history.push({ runs, wickets, balls, overs, lastSixBalls: [...lastSixBalls] });
+
+            let ballText = run === "Out" ? "W" : run;
             if (run === "Out") {
                 wickets++;
             } else {
                 runs += run;
             }
+
             balls++;
             if (balls % 6 === 0) {
                 overs++;
                 balls = 0;
             }
+
+            lastSixBalls.push(ballText);
+            lastSixBalls = lastSixBalls.slice(-6); // Keep last 6 balls
+
+            // Update UI
             document.getElementById("runs").innerText = runs;
             document.getElementById("wickets").innerText = wickets;
             document.getElementById("overs").innerText = `${overs}.${balls}`;
+            document.getElementById("lastBalls").innerText = lastSixBalls.join(" | ");
+
+            checkInningsEnd();
+        }
+
+        // Undo function
+        function undoLast() {
+            if (history.length > 0) {
+                let prevState = history.pop();
+                runs = prevState.runs;
+                wickets = prevState.wickets;
+                balls = prevState.balls;
+                overs = prevState.overs;
+                lastSixBalls = prevState.lastSixBalls;
+
+                // Update UI
+                document.getElementById("runs").innerText = runs;
+                document.getElementById("wickets").innerText = wickets;
+                document.getElementById("overs").innerText = `${overs}.${balls}`;
+                document.getElementById("lastBalls").innerText = lastSixBalls.join(" | ");
+            }
+        }
+
+        // Function to check if innings should end
+        function checkInningsEnd() {
+            if (overs >= totalOvers) {
+                if (isFirstInnings) {
+                    alert(`${battingTeam} has finished their innings! Now ${teamBattingSecond} will bat.`);
+                    switchInnings();
+                } else {
+                    alert(`Match Over!`);
+                }
+            }
+        }
+
+        // Function to switch innings
+        function switchInnings() {
+            isFirstInnings = false;
+            battingTeam = teamBattingSecond;
+            runs = 0;
+            wickets = 0;
+            balls = 0;
+            overs = 0;
+            lastSixBalls = [];
+            history = [];
+
+            document.getElementById("battingTeam").innerText = battingTeam;
+            document.getElementById("runs").innerText = runs;
+            document.getElementById("wickets").innerText = wickets;
+            document.getElementById("overs").innerText = `${overs}.${balls}`;
+            document.getElementById("lastBalls").innerText = "-";
         }
     </script>
 
