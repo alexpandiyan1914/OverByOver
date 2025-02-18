@@ -1,22 +1,24 @@
-document.addEventListener("DOMContentLoaded",function(){
-    const images = ["images/dhoni.jpg","images/sachin.jpg","images/kohli.jpg","images/rohit.jpg"]
-    let index = 0;
+function setNames(){
+    let Team1a = document.getElementById("team1").value;
+    let Team1b = document.getElementById("team2").value;
+    let Overs = document.getElementById("over").value;
 
-    function changeBackround(){
-   
-
-    if(!document.body){
-        console.error("document .body is not ready !")
-        return;
+    if(Team1a == "" || Team1b == ""){
+        alert("Enter Team names Properly !");
+        return false;
     }
-    document.body.style.backgroundImage=`url('${images[index]}')`;
-    index = (index+1)%images.length;
-    }
+    console.log("Fetched team1:", Team1a);
+    console.log("Fetched team2:", Team1b);
+    console.log("Fetched over:", Overs2);
+    //storing the values in local storage
+    localStorage.setItem("team1",Team1a);
+    localStorage.setItem("team2",Team1b);
+    localStorage.setItem("over",Overs);
 
-    setInterval(changeBackround,4000);
-    changeBackround();
+    return true;
+}
 
-});
+
 
 // // Function to store team names and overs before navigating to scorecard.html
 // function setTeamNames() {
