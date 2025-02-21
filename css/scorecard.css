@@ -6,7 +6,8 @@
     font-style: normal;
 }
 body{
-    background-image: url('../images/ground.jpg');
+    /* background-image: url('../images/ground.jpg'); */
+    background: linear-gradient(to right, #0D1B2A, #1B263B, #415A77);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -160,7 +161,7 @@ header a{
 
 /*footer starts*/
 footer{
-    background: linear-gradient(to right, #0D1B2A, #1B263B, #415A77);
+    background: linear-gradient(to left, #0D1B2A, #1B263B, #415A77);
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
     padding: 30px 20px;
     margin-top: 52.5px;
