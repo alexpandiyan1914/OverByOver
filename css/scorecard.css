@@ -105,7 +105,7 @@ header a{
     margin-bottom: 10px;
 }
 .btns {
-    padding: 10px 120px 10px 90px;
+    padding: 10px 125px 10px 90px;
     margin-left: 10px;
     min-width: 93%;
     text-align: center;
@@ -162,9 +162,9 @@ header a{
 /*footer starts*/
 footer{
     background: linear-gradient(to left, #0D1B2A, #1B263B, #415A77);
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 10px 10px 10px rgba(2, 0.5, 0, 0);
     padding: 30px 20px;
-    margin-top: 52.5px;
+    margin-top: 106px;
 
 }
 footer h4{

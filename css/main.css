@@ -65,13 +65,13 @@ header a{
 /*Nav bar end*/
 /*footer starts*/
 footer{
-    background: linear-gradient(to left, #0D1B2A, #1B263B, #415A77);
-    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+    background: transparent;
     padding: 30px 20px;
     margin-top: 101px;
 }
 footer h4{
     color: #f8f8f8;
+    padding-left: 50px;
     font-weight: lighter;
     text-align: center;
 }
