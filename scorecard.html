@@ -26,15 +26,24 @@
         <a href="javascript:void(0);" class="logout" id="Log">Logout</a>
     </header>
     <div class="total">
+        <div class="team">
+            <span id="team11">Team A</span> vs <span id="team22">Team B</span>
+        </div>
         <div class="scorecard_container">
             <h2 class="heading">Score card</h2>
             <div class="team-names">
-                <span id="team11">Team A</span> vs <span id="team22">Team B</span>
+                Batting:<span id="bat-team">Team A</span>
             </div>
             <div id="scoreboard">
                 <h1><span id="runs">0</span>/<span id="wickets">0</span></h1>
                 <p>over <span id="overs22">0.0</span></p>
             </div>
+        </div>
+        <div class="previous-ball">
+            Last 6 balls: <span id="prev-ball">0|0|0|0|0|0</span>
+        </div>
+        <div class="curr-nrr">
+            Curr NRR : <span id="nrr">0.0</span>
         </div>
         <div class="run_buttons">
             <h3 id="calculate_head">calculate Score !</h3>

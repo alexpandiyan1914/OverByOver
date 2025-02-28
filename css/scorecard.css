@@ -71,10 +71,11 @@ header a{
 .scorecard_container{
     text-align: center;
     background: #E0E1DD;
-    padding: 30px 40px;
+    padding: 33px 40px;
     border: 2px solid #415A77;
     border-radius: 10px;
     color: #14274E;
+    margin-top: 20px;
     /* margin-right: 650px;
     margin-left: 650px;
     margin-top: 30px; */
@@ -159,6 +160,28 @@ header a{
     transform: scale(1.2);
 }
 
+.total{
+    position: relative;
+}
+.team{
+    position: absolute;
+    color: #F8F8F8;
+    margin-bottom: 250px;
+    margin-right: 690px;
+}
+.previous-ball{
+    position: absolute;
+    color: #F8F8F8;
+    margin-top: 290px;
+    margin-right: 690px;
+}
+.curr-nrr{
+    position: absolute;
+    color: #F8F8F8;
+    margin-top: 360px;
+    margin-right: 690px;
+
+}
 /*footer starts*/
 footer{
     background: linear-gradient(to left, #0D1B2A, #1B263B, #415A77);
