@@ -18,6 +18,15 @@ function setNames(){
     return true;
 }
 
+function myFunction() {
+    var x = document.getElementById("container-2");
+    if (x.style.display === "none") {
+      x.style.display = "flex";
+    } else {
+      x.style.display = "none";
+    }
+  }
+
 
 
 // // Function to store team names and overs before navigating to scorecard.html
