@@ -16,18 +16,22 @@
 document.addEventListener("DOMContentLoaded", function () {
     let team1 = localStorage.getItem("team1") || "Team A";
     let team2 = localStorage.getItem("team2") || "Team B";
-    let overs = localStorage.getItem("over") || "0";
-    let tossChoice = localStorage.getItem("tossChoice") || "batting";
+    let overs = localStorage.getItem("over") || "0.0";
+    let tossChoice = localStorage.getItem("tossChoice");
+    let tossWinner = localStorage.getItem("tossWinner");
 
     document.getElementById("team11").textContent = team1;
     document.getElementById("team22").textContent = team2;
-    document.getElementById("overs22").textContent = overs;
+    // document.getElementById("overs22").textContent = overs;
 
-    if (tossChoice === "batting") {
-        document.getElementById("bat-team").textContent = team1;
-    } else {
-        document.getElementById("bat-team").textContent = team2;
+    let battingteam;
+    if(tossChoice == "batting"){
+        battingteam = tossWinner;
+    }else{
+        battingteam = tossWinner === team1?team1:team2;
     }
+
+    document.getElementById("bat-team").textContent = battingteam;
 
     console.log("Fetched Team 1:", team1);
     console.log("Fetched Team 2:", team2);
@@ -37,5 +41,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 function logout(){
+    localStorage.clear();
     window.location.href = "index.html";
 }
