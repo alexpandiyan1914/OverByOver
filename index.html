@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link rel='stylesheet' type='text/css' media='screen' href='css/main.css'>
-    <!-- <script src='js/main.js'></script> -->
+    <script src='js/main.js'></script>
 </head>
 
 <body class="index_body">
@@ -29,7 +29,7 @@
         <div class="login">
             <h2 class="title_des">OverByOver</h2>
             <h3 class="title_des">Cricket Score Tracker</h3>
-            <form method="get" id="Form" onsubmit='return setTeamNames()' action="scorecard.html">
+            <form method="get" id="Form" onsubmit='return setTeamNames()'>
                 <div class="team-names">
                     <span class="icons"><i class="fa-solid fa-people-group"></i></span>
                     <input type="text" id="team1" name="team1" required>
@@ -41,7 +41,7 @@
                     <label>Enter Team Name</label>
                 </div>
                 <div class="over-box">
-                    <input type="number" placeholder="Overs ?" id="over" name="over">
+                    <input type="number" placeholder="Overs ?" id="over" name="over" required>
                     <input type="submit" value="Toss a Coin" id="submit_button">
                 </div>
             </form>
@@ -55,10 +55,9 @@
             <label for="bat" class="bat-bowl">Batting</label>
             <input type="radio" id="bowl" value="bowling" name="choice">
             <label for="bowl"  class="bat-bowl">bowling</label><br>
-            <input type="button" value="Start match" id="start-match">
+            <input type="submit" value="Start match" id="start-match">
         </form>        
     </div>
-    <!-- <button onclick="myFunction()">Try it</button> -->
     <footer>
         <h4>@2025 | Made by Alexpandiyan A</h4>
     </footer>

@@ -1,32 +1,71 @@
-function setNames(){
-    let Team1a = document.getElementById("team1").value;
-    let Team1b = document.getElementById("team2").value;
-    let Overs = document.getElementById("over").value;
 
-    if(Team1a == "" || Team1b == ""){
-        alert("Enter Team names Properly !");
+function Toss() {
+    let team1 = localStorage.getItem("team1");
+    let team2 = localStorage.getItem("team2");
+    let overs = localStorage.getItem("over");
+
+    if (team1 == " " || team2 == " " || overs ==" ") {
+        alert("Please enter team names first!");
         return false;
     }
-    console.log("Fetched team1:", Team1a);
-    console.log("Fetched team2:", Team1b);
-    console.log("Fetched over:", Overs2);
-    //storing the values in local storage
-    localStorage.setItem("team1",Team1a);
-    localStorage.setItem("team2",Team1b);
-    localStorage.setItem("over",Overs);
 
-    return true;
-}
-
-function myFunction() {
-    var x = document.getElementById("container-2");
-    if (x.style.display === "none") {
-      x.style.display = "flex";
-    } else {
-      x.style.display = "none";
-    }
+    var x = document.getElementById("container");
+  if (x.style.display === "none") {
+    x.style.display = "flex";
+  } else {
+    x.style.display = "none";
   }
 
+    // Perform coin toss (50-50 chance)
+    let tossWinner = Math.random() < 0.5 ? team1 : team2;
+
+    document.getElementById("Toss").innerText = tossWinner + " won the toss!";
+    document.getElementById("container").style.display = "none";
+    document.getElementById("container-2").style.display = "block";
+
+    
+   
+}
+
+function setTeamNames() {
+    let team1 = document.getElementById("team1").value.trim();
+    let team2 = document.getElementById("team2").value.trim();
+    let overs = document.getElementById("over").value.trim();
+
+    if (team1 === "" || team2 === "" || overs === "") {
+        alert("Enter team names and overs properly!");
+        return false;
+    }
+
+    console.log("Fetched Team 1:", team1);
+    console.log("Fetched Team 2:", team2);
+    console.log("Fetched Overs:", overs);
+
+    // Store values in local storage
+    localStorage.setItem("team1", team1);
+    localStorage.setItem("team2", team2);
+    localStorage.setItem("over", overs);
+
+    Toss();
+
+    return false;
+}
+
+document.addEventListener("DOMContentLoaded", function() { 
+  document.getElementById("toss-form").addEventListener("submit", function(event) {
+      event.preventDefault(); 
+
+      let choice = document.querySelector('input[name="choice"]:checked');
+
+      if (!choice) {
+          alert("Please select Batting or Bowling before starting the match!");
+          return false;
+      }
+
+      localStorage.setItem("tossChoice", choice.value);
+      window.location.href = "scorecard.html";
+  });
+});
 
 
 // // Function to store team names and overs before navigating to scorecard.html

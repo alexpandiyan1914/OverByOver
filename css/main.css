@@ -180,6 +180,7 @@ footer h4{
     align-content: center;
     text-align: center;
     height: 100vh;
+    display: none;
 }
 #Toss{
     color: #F8F8F8;
