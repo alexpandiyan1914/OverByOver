@@ -27,8 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
     let battingteam;
     if(tossChoice == "batting"){
         battingteam = tossWinner;
+    }else if(tossChoice == "bowling"){
+        battingteam = tossWinner === team1?team2:team1;
     }else{
-        battingteam = tossWinner === team1?team1:team2;
+        console.error("Toss not selected properly !");
     }
 
     document.getElementById("bat-team").textContent = battingteam;
@@ -37,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Fetched Team 2:", team2);
     console.log("Fetched Overs:", overs);
     console.log("Toss Winner Chose:", tossChoice);
+    console.log("batting team:",battingteam);
 });
 
 

@@ -23,8 +23,7 @@ function Toss() {
     document.getElementById("container").style.display = "none";
     document.getElementById("container-2").style.display = "block";
 
-    localStorage.setItem("tossWinner",tossWinner.value);
-
+    localStorage.setItem("tossWinner",tossWinner);
 }
 
 function setTeamNames() {
