@@ -44,6 +44,14 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("batting team:",battingteam);
 });
 
+function calculateRunRate(runs, overs, balls) {
+    let totalOvers = overs + (balls / 6);  // Convert balls to overs
+    if (totalOvers === 0) return "0.00"; // Avoid division by zero
+
+    let runRate = runs / totalOvers;
+    return runRate.toFixed(2); // Round to 2 decimal places
+}
+
 function updateScore(run){
     History.push({ runs, wickets, balls, over, lastSixBalls: [...LastSixBalls] });
 
@@ -72,11 +80,14 @@ function updateScore(run){
     LastSixBalls.push(ballText);
     LastSixBalls = LastSixBalls.slice(-6);
 
+    let runRate = calculateRunRate(runs, over, balls);
+
     //update UI
     document.getElementById("runs").innerText = runs;
     document.getElementById("Wickets").textContent = wickets;
     document.getElementById("overs22").innerText = `${over}.${balls}`;
     document.getElementById("prev-ball").innerText = LastSixBalls.join(" | ");
+    document.getElementById("nrr").innerText = runRate;
 
 }
 
