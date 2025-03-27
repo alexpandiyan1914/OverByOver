@@ -50,8 +50,10 @@ function updateScore(run){
     let ballText = run === "Out"?'W':run;
     if(run == "Out"){
         wickets++;
+        balls++;
         console.log("Out Bro nee");
     }else if(run == "⦁"){
+        balls++;
         console.log("Dokku");
     }
     else if(run == "wide"){
@@ -62,7 +64,7 @@ function updateScore(run){
         balls++;
     }
 
-    if(balls % 6 == 0){
+    if(balls >= 6){
         over++;
         balls = 0;
     }
