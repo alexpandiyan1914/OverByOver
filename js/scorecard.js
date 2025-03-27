@@ -12,7 +12,9 @@
 //     getNames();
 //     document.getElementById("Log").addEventListener("click",logout);
 // };
-
+let runs=0,wickets=0,balls=0,over=0;
+let LastSixBalls = [];
+let History = [];
 document.addEventListener("DOMContentLoaded", function () {
     let team1 = localStorage.getItem("team1") || "Team A";
     let team2 = localStorage.getItem("team2") || "Team B";
@@ -41,6 +43,40 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Toss Winner Chose:", tossChoice);
     console.log("batting team:",battingteam);
 });
+
+function updateScore(run){
+    History.push({ runs, wickets, balls, over, lastSixBalls: [...LastSixBalls] });
+
+    let ballText = run === "Out"?'W':run;
+    if(run == "Out"){
+        wickets++;
+        console.log("Out Bro nee");
+    }else if(run == "⦁"){
+        console.log("Dokku");
+    }
+    else if(run == "wide"){
+        runs += 1;
+        console.log("wide podama podrah dei");
+    }else{
+        runs += run;
+        balls++;
+    }
+
+    if(balls % 6 == 0){
+        over++;
+        balls = 0;
+    }
+
+    LastSixBalls.push(ballText);
+    LastSixBalls = LastSixBalls.slice(-6);
+
+    //update UI
+    document.getElementById("runs").innerText = runs;
+    document.getElementById("Wickets").textContent = wickets;
+    document.getElementById("overs22").innerText = `${over}.${balls}`;
+    document.getElementById("prev-ball").innerText = LastSixBalls.join(" | ");
+
+}
 
 
 function logout(){

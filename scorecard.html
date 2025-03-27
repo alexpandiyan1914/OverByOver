@@ -35,27 +35,27 @@
                 Batting: <span id="bat-team">Team A</span>
             </div>
             <div id="scoreboard">
-                <h1><span id="runs">0</span>/<span id="wickets">0</span></h1>
+                <h1><span id="runs">0</span>/<span id="Wickets">0</span></h1>
                 <p>over <span id="overs22">0.0</span></p>
             </div>
         </div>
         <div class="previous-ball">
-            Last 6 balls: <span id="prev-ball">0|0|0|0|0|0</span>
+            Last 6 balls: <span id="prev-ball">0</span>
         </div>
         <div class="curr-nrr">
             Curr NRR : <span id="nrr">0.0</span>
         </div>
         <div class="run_buttons">
             <h3 id="calculate_head">calculate Score !</h3>
-            <button class="btns" id="dot"><strong>Dot Ball</strong></button><br>
-            <button class="btns_run">1</button>
-            <button class="btns_run">2</button>
-            <button class="btns_run">3</button><br>
-            <button class="btns_run">4</button>
-            <button class="btns_run">5</button>
-            <button class="btns_run">6</button><br>
-            <button class="btns" id="wide"><strong>Wide</strong></button><br>
-            <button class="btns" id="out"><strong>Out</strong></button><br>
+            <button class="btns" id="dot" onclick="updateScore('⦁')"><strong>Dot Ball</strong></button><br>
+            <button class="btns_run" onclick="updateScore(1)">1</button>
+            <button class="btns_run" onclick="updateScore(2)">2</button>
+            <button class="btns_run" onclick="updateScore(3)">3</button><br>
+            <button class="btns_run" onclick="updateScore(4)">4</button>
+            <button class="btns_run" onclick="updateScore(5)">5</button>
+            <button class="btns_run" onclick="updateScore(6)">6</button><br>
+            <button class="btns" id="wide" onclick="updateScore('wide')"><strong>Wide</strong></button><br>
+            <button class="btns" id="out" onclick="updateScore('Out')"><strong>Out</strong></button><br>
             <button class="btns" id="undo"><strong>Undo</strong></button><br>
             <!-- <button class="btns" id="next"><strong>NextBall</strong></button> -->
         </div>
