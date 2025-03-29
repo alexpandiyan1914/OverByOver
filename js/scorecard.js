@@ -1,20 +1,11 @@
-// function getNames(){
-//     let Team2a = localStorage.getItem("team2") || "Team 1";
-//     let Team2b = localStorage.getItem("team2") || "Team 2";
-//     let Overs2 = localStorage.getItem("overs") || "0";
-
-//     document.getElementById("team11").innerText = Team2a;
-//     document.getElementById("team22").innerText = Team2b;
-//     document.getElementById("overs22").innerText = Overs2;
-// }
-
-// window.onload = function() {
-//     getNames();
-//     document.getElementById("Log").addEventListener("click",logout);
-// };
-let runs=0,wickets=0,balls=0,over=0;
-let LastSixBalls = [];
+let runs = parseInt(localStorage.getItem("runs")) || 0;
+let wickets = parseInt(localStorage.getItem("wickets")) || 0;
+let over = parseInt(localStorage.getItem("over")) || 0;
+let balls = parseInt(localStorage.getItem("balls")) || 0;
+let LastSixBalls = JSON.parse(localStorage.getItem("LastSixBalls")) || [];
+let runRate = localStorage.getItem("runRate") || "0.00";
 let History = [];
+
 document.addEventListener("DOMContentLoaded", function () {
     let team1 = localStorage.getItem("team1") || "Team A";
     let team2 = localStorage.getItem("team2") || "Team B";
@@ -27,11 +18,11 @@ document.addEventListener("DOMContentLoaded", function () {
     // document.getElementById("overs22").textContent = overs;
 
     let battingteam;
-    if(tossChoice == "batting"){
+    if (tossChoice == "batting") {
         battingteam = tossWinner;
-    }else if(tossChoice == "bowling"){
-        battingteam = tossWinner === team1?team2:team1;
-    }else{
+    } else if (tossChoice == "bowling") {
+        battingteam = tossWinner === team1 ? team2 : team1;
+    } else {
         console.error("Toss not selected properly !");
     }
 
@@ -41,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Fetched Team 2:", team2);
     console.log("Fetched Overs:", overs);
     console.log("Toss Winner Chose:", tossChoice);
-    console.log("batting team:",battingteam);
+    console.log("batting team:", battingteam);
 });
 
 function calculateRunRate(runs, overs, balls) {
@@ -52,27 +43,29 @@ function calculateRunRate(runs, overs, balls) {
     return runRate.toFixed(2); // Round to 2 decimal places
 }
 
-function updateScore(run){
+
+
+function updateScore(run) {
     History.push({ runs, wickets, balls, over, lastSixBalls: [...LastSixBalls] });
 
-    let ballText = run === "Out"?'W':run;
-    if(run == "Out"){
+    let ballText = run === "Out" ? 'W' : run;
+    if (run == "Out") {
         wickets++;
         balls++;
         console.log("Out Bro nee");
-    }else if(run == "⦁"){
+    } else if (run == "⦁") {
         balls++;
         console.log("Dokku");
     }
-    else if(run == "wide"){
+    else if (run == "wide") {
         runs += 1;
         console.log("wide podama podrah dei");
-    }else{
+    } else {
         runs += run;
         balls++;
     }
 
-    if(balls >= 6){
+    if (balls >= 6) {
         over++;
         balls = 0;
     }
@@ -81,18 +74,40 @@ function updateScore(run){
     LastSixBalls = LastSixBalls.slice(-6);
 
     let runRate = calculateRunRate(runs, over, balls);
+    
+    localStorage.setItem("runs", runs);
+    localStorage.setItem("wickets", wickets);
+    localStorage.setItem("over", over);
+    localStorage.setItem("balls", balls);
+    localStorage.setItem("runRate", runRate);
+    localStorage.setItem("LastSixBalls", JSON.stringify(LastSixBalls));
+
+    console.log("values stored in local storage");
+    console.log("Runs: ",runs);
+    console.log("wickets: ",wickets);
+    console.log("over: ",`${over}.${balls}`);
+    console.log("Run Rate: ",runRate);
+
 
     //update UI
+    updateUI();
+}
+
+function updateUI() {
+    runRate = calculateRunRate(runs, over, balls);
     document.getElementById("runs").innerText = runs;
     document.getElementById("Wickets").textContent = wickets;
     document.getElementById("overs22").innerText = `${over}.${balls}`;
     document.getElementById("prev-ball").innerText = LastSixBalls.join(" | ");
     document.getElementById("nrr").innerText = runRate;
-
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+    updateUI();
+});
 
-function logout(){
+
+function logout() {
     localStorage.clear();
     window.location.href = "index.html";
 }
