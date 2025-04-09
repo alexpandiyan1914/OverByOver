@@ -43,7 +43,7 @@ function setTeamNames() {
     // Store values in local storage
     localStorage.setItem("team1", team1);
     localStorage.setItem("team2", team2);
-    localStorage.setItem("overs", overs);
+    localStorage.setItem("maxOvers", overs);
 
     Toss();
 
@@ -65,3 +65,13 @@ document.addEventListener("DOMContentLoaded", function() {
       window.location.href = "scorecard.html";
   });
 });
+
+function scorecardalrt() {
+  let team1 = localStorage.getItem("team1");
+    let team2 = localStorage.getItem("team2");
+  if(!team1 || !team2){
+    alert("Enter Team Names !");
+    return false;
+  }
+  return true;
+}

@@ -20,7 +20,7 @@
         <nav>
             <ul class="nav-link">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="scorecard.html">Score Card</a></li>
+                <li><a href="scorecard.html" onclick="return scorecardalrt()">Score Card</a></li>
                 <li><a href="#">About</a></li>
             </ul>
         </nav>
@@ -29,7 +29,7 @@
         <div class="login">
             <h2 class="title_des">OverByOver</h2>
             <h3 class="title_des">Cricket Score Tracker</h3>
-            <form method="get" id="Form" onsubmit='return setTeamNames()'>
+            <form method="post" id="Form" onsubmit='return setTeamNames()'>
                 <div class="team-names">
                     <span class="icons"><i class="fa-solid fa-people-group"></i></span>
                     <input type="text" id="team1" name="team1" required>
