@@ -206,6 +206,8 @@ function startSecondInnings() {
     localStorage.setItem("firstInnings_wickets", wickets);
     localStorage.setItem("firstInnings_overs", `${over}.${balls}`);
     localStorage.setItem("firstInnings_LastSixBalls", JSON.stringify(LastSixBalls));
+    let target = parseInt(localStorage.getItem("firstInnings_runs")) + 1;
+    document.getElementById("target").textContent = "Target: "+target;
 
     // Reset values for second innings
     runs = 0;

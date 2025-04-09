@@ -184,6 +184,16 @@ header a{
     margin-right: 690px;
 
 }
+
+#target{
+    margin-left: 100px;
+}
+.target-tracker{
+    position: absolute;
+    color: #F8F8F8;
+    margin-top: 420px;
+    margin-right: 690px;
+}
 /*footer starts*/
 footer{
     background: linear-gradient(to left, #0D1B2A, #1B263B, #415A77);
