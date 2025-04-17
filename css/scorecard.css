@@ -184,9 +184,9 @@ header a{
     margin-right: 690px;
 
 }
-
 #target{
     margin-left: 100px;
+    color: crimson;
 }
 .target-tracker{
     position: absolute;

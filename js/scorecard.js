@@ -85,6 +85,7 @@ function updateUI() {
     document.getElementById("overs22").innerText = `${over}.${balls}`;
     document.getElementById("prev-ball").innerText = LastSixBalls.join(" | ");
     document.getElementById("nrr").innerText = runRate;
+    checkStats();
 }
 
 function startSecondInnings() {
@@ -103,7 +104,6 @@ function startSecondInnings() {
     balls = 0;
     LastSixBalls = [];
     currentInnings = "2";
-
     localStorage.setItem("runs", runs);
     localStorage.setItem("wickets", wickets);
     localStorage.setItem("over", over);
@@ -135,6 +135,29 @@ function checkMatchEnd() {
             startSecondInnings();
         }
     }
+}
+
+function checkStats(){
+    if(currentInnings == "2"){
+
+    
+    let target = parseInt(localStorage.getItem("firstInnings_runs"))+1;
+    let runsRemaining = target - runs;
+    let ballsRemaining = (maxOvers * 6) - (over * 6 + balls);
+    let reqRunRate = (runsRemaining/(ballsRemaining/6)).toFixed(2);
+
+    if(runsRemaining <= 0 || ballsRemaining <= 0){
+        document.getElementById("update-Stats").textContent = "";
+    }else{
+        let updateStats = `${runsRemaining} Runs needed from ${ballsRemaining} Balls`
+        document.getElementById("update-Stats").textContent = updateStats;
+        document.getElementById("req-RR").textContent = `Req RR: ${reqRunRate}`;
+    }
+}else{
+    document.getElementById("update-Stats").textContent = "";
+
+}
+
 }
 
 function disableButtons() {
