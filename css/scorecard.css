@@ -188,6 +188,12 @@ header a{
     margin-left: 100px;
     color: crimson;
 }
+.winner-msg{
+    margin-left: 310px;
+}
+#winner{
+    color: gold;
+}
 .target-tracker{
     position: absolute;
     color: #F8F8F8;
