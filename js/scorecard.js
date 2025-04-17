@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     document.getElementById("bat-team").textContent = battingteam;
-    localStorage.setItem("battingteam",battingteam);
+    localStorage.setItem("battingteam", battingteam);
 
     updateUI();
 });
@@ -96,13 +96,13 @@ function startSecondInnings() {
     localStorage.setItem("firstInnings_overs", `${over}.${balls}`);
     localStorage.setItem("firstInnings_LastSixBalls", JSON.stringify(LastSixBalls));
     let target = parseInt(localStorage.getItem("firstInnings_runs")) + 1;
-    document.getElementById("target").textContent = "Target: "+target;
+    document.getElementById("target").textContent = "Target: " + target;
 
     //change batting team names in UI
     let team1 = localStorage.getItem("team1");
     let team2 = localStorage.getItem("team2");
     let currentbatting = localStorage.getItem("battingteam");
-    let newBatting = (currentbatting === team1)?team2:team1;
+    let newBatting = (currentbatting === team1) ? team2 : team1;
 
     document.getElementById("bat-team").textContent = newBatting;
 
@@ -133,15 +133,20 @@ function checkMatchEnd() {
         let team1 = localStorage.getItem("team1");
         let team2 = localStorage.getItem("team2");
         let currentbatting = localStorage.getItem("battingteam");
-        let newBatting = (currentbatting === team1)?team2:team1;
-        let bowlingteam = (currentbatting === team1)?team1:team2;
+        let newBatting = (currentbatting === team1) ? team2 : team1;
+        let bowlingteam = (currentbatting === team1) ? team1 : team2;
 
         if (runs >= target) {
+            alert("🎉 Second innings team won!");         
             document.getElementById("winner").textContent = `${newBatting} Won the Match`;
-            alert("🎉 Second innings team won!");
+            document.getElementById("total").style.display = "none";
+            document.getElementById("winner-msg").style.display = "block";
+           
+       
             disableButtons();
         } else if (isAllOut || isOversDone) {
             document.getElementById("winner").textContent = `${bowlingteam} Won the Match`;
+            document.getElementById("total").style.display = "none";            
             alert("🎉 First innings team won!");
             disableButtons();
         }
@@ -154,26 +159,24 @@ function checkMatchEnd() {
     }
 }
 
-function checkStats(){
-    if(currentInnings == "2"){
+function checkStats() {
+    if (currentInnings == "2") {
+        let target = parseInt(localStorage.getItem("firstInnings_runs")) + 1;
+        let runsRemaining = target - runs;
+        let ballsRemaining = (maxOvers * 6) - (over * 6 + balls);
+        let reqRunRate = (runsRemaining / (ballsRemaining / 6)).toFixed(2);
 
-    
-    let target = parseInt(localStorage.getItem("firstInnings_runs"))+1;
-    let runsRemaining = target - runs;
-    let ballsRemaining = (maxOvers * 6) - (over * 6 + balls);
-    let reqRunRate = (runsRemaining/(ballsRemaining/6)).toFixed(2);
-
-    if(runsRemaining <= 0 || ballsRemaining <= 0){
+        if (runsRemaining <= 0 || ballsRemaining <= 0) {
+            document.getElementById("update-Stats").textContent = "";
+        } else {
+            let updateStats = `${runsRemaining} Runs needed from ${ballsRemaining} Balls`
+            document.getElementById("update-Stats").textContent = updateStats;
+            document.getElementById("req-RR").textContent = `Req RR: ${reqRunRate}`;
+        }
+    } else {
         document.getElementById("update-Stats").textContent = "";
-    }else{
-        let updateStats = `${runsRemaining} Runs needed from ${ballsRemaining} Balls`
-        document.getElementById("update-Stats").textContent = updateStats;
-        document.getElementById("req-RR").textContent = `Req RR: ${reqRunRate}`;
-    }
-}else{
-    document.getElementById("update-Stats").textContent = "";
 
-}
+    }
 
 }
 
