@@ -11,15 +11,11 @@ body {
     background: linear-gradient(to right, #0D1B2A, #1B263B, #415A77);
     background-repeat: no-repeat;
     background-size: cover;
-    height: 100vh;
-    width: 100%;
-}
-.wrapper {
     min-height: 100vh;
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
-
 /*Nav bar start*/
 header {
     display: flex;
@@ -71,6 +67,7 @@ header a {
     color: #f8f8f8;
     border-radius: 50px;
     transition: all 0.5s ease;
+    cursor: pointer;
 }
 
 .logout:hover {
@@ -219,22 +216,6 @@ header a {
 #target {
     margin-left: 100px;
     color: crimson;
-}
-
-#winner-msg {
-    margin-left: 500px;
-    margin-top: 350px;
-    height: 100vh;
-    width: 100%;
-    display: none;
-}
-
-#winner {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #28a745;
-    text-align: center;
-    
 }
 
 .target-tracker {

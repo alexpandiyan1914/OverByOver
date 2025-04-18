@@ -135,19 +135,20 @@ function checkMatchEnd() {
         let currentbatting = localStorage.getItem("battingteam");
         let newBatting = (currentbatting === team1) ? team2 : team1;
         let bowlingteam = (currentbatting === team1) ? team1 : team2;
+        
+        
 
         if (runs >= target) {
-            alert("🎉 Second innings team won!");         
-            document.getElementById("winner").textContent = `${newBatting} Won the Match`;
-            document.getElementById("total").style.display = "none";
-            document.getElementById("winner-msg").style.display = "block";
-           
-       
+            // alert("🎉 Second innings team won!");         
+            // document.getElementById("winner").textContent = `${newBatting} Won the Match`;
+            localStorage.setItem("won-sec-innings",newBatting);
+            window.location.href = "winner.html"
             disableButtons();
         } else if (isAllOut || isOversDone) {
-            document.getElementById("winner").textContent = `${bowlingteam} Won the Match`;
-            document.getElementById("total").style.display = "none";            
-            alert("🎉 First innings team won!");
+            // document.getElementById("winner").textContent = `${bowlingteam} Won the Match`;  
+            // alert("🎉 First innings team won!");
+            localStorage.setItem("won-fir-inning",bowlingteam);
+            window.location.href = "winner.html"
             disableButtons();
         }
     } else {
