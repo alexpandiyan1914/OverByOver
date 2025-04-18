@@ -123,6 +123,13 @@ function startSecondInnings() {
     alert("Second innings started!");
     updateUI();
 }
+function navigateToWinnerPage(url) {
+    // Show the loading screen
+    document.getElementById("loading-screen").style.display = "flex";
+    setTimeout(() => {
+        window.location.href = url;
+    }, 1500); 
+}
 
 function checkMatchEnd() {
     if (currentInnings === "2") {
@@ -135,20 +142,15 @@ function checkMatchEnd() {
         let currentbatting = localStorage.getItem("battingteam");
         let newBatting = (currentbatting === team1) ? team2 : team1;
         let bowlingteam = (currentbatting === team1) ? team1 : team2;
-        
-        
 
         if (runs >= target) {
-            // alert("🎉 Second innings team won!");         
-            // document.getElementById("winner").textContent = `${newBatting} Won the Match`;
             localStorage.setItem("won-sec-innings",newBatting);
-            window.location.href = "winner.html"
+            navigateToWinnerPage("winner.html");
+            
             disableButtons();
         } else if (isAllOut || isOversDone) {
-            // document.getElementById("winner").textContent = `${bowlingteam} Won the Match`;  
-            // alert("🎉 First innings team won!");
             localStorage.setItem("won-fir-inning",bowlingteam);
-            window.location.href = "winner.html"
+            navigateToWinnerPage("winner.html");
             disableButtons();
         }
     } else {
@@ -186,16 +188,6 @@ function disableButtons() {
 }
 
 function logout() {
-    // Only clear second innings data
-    localStorage.removeItem("runs");
-    localStorage.removeItem("wickets");
-    localStorage.removeItem("balls");
-    localStorage.removeItem("over");
-    localStorage.removeItem("runRate");
-    localStorage.removeItem("LastSixBalls");
-    localStorage.removeItem("currentInnings");
     localStorage.clear();
-
-    // Keep firstInnings_* to show result if needed
     window.location.href = "index.html";
 }
