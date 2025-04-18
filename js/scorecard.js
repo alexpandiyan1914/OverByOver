@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("team11").textContent = team1;
     document.getElementById("team22").textContent = team2;
+    console.log("Team 1: ",team1);
+    console.log("Team 2: ",team2);
+    console.log("Toss:",tossWinner," Choose to ",tossChoice);
 
     let battingteam;
     if (tossChoice == "batting") {
@@ -75,6 +78,10 @@ function updateScore(run) {
     localStorage.setItem("LastSixBalls", JSON.stringify(LastSixBalls));
 
     updateUI();
+    console.log("Runs: ",runs);
+    console.log("Wickets: ",wickets);
+    console.log("Overs: ",over,".",balls);
+    console.log("RR: ",runRate);
 
     checkMatchEnd(); // check result after each update
 }
