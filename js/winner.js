@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (winAtFir) {
         document.getElementById("winner").textContent = `${winAtFir} won by ${wonbyDiff} runs`;
         console.log(winAtFir, "Won the match !");
-    }else if (firstInng_run === secondInng_run){
+    }else {
         document.getElementById("winner").textContent = "Match result not available.";
         console.log("Match result not available");
     }
