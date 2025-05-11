@@ -3,11 +3,12 @@ document.addEventListener("DOMContentLoaded", () => {
     let winAtFir = localStorage.getItem("won-fir-inning");
     let firstInng_run = localStorage.getItem("firstInnings_runs");
     let secondInng_run = localStorage.getItem("runs");
-    let wonbyDiff = firstInng_run - secondInng_run;
-    let wonbyWick = 10 - localStorage.getItem("wickets");
+    let wonbyDiff = parseInt(firstInng_run) - parseInt(secondInng_run);
+    let wonbyWick = 10 - parseInt(localStorage.getItem("wickets"));
     let firstInng_over = localStorage.getItem("firstInnings_overs");
     let sec_over = localStorage.getItem("over");
     let sec_balls = localStorage.getItem("balls");
+    let matchResult = localStorage.getItem("matchResult");
 
     team1 = localStorage.getItem("team1") || "Team A"
     team2 = localStorage.getItem("team2") || "Team B";
@@ -24,14 +25,17 @@ document.addEventListener("DOMContentLoaded", () => {
         secondBattingTeam = tossWinner;
         firstBattingTeam = (tossWinner === team1) ? team2 : team1;
     }
+    if(matchResult === "tied"){
+        document.getElementById("winner").textContent = "Match tied.";
+        console.log("Match result not available");
 
-    if (winAtSec) {
+    } else if(winAtSec) {
         document.getElementById("winner").textContent = `${winAtSec} won by ${wonbyWick} wkts`;
         console.log(winAtSec, "Won the match !");
     } else if (winAtFir) {
         document.getElementById("winner").textContent = `${winAtFir} won by ${wonbyDiff} runs`;
         console.log(winAtFir, "Won the match !");
-    }else {
+    }else{
         document.getElementById("winner").textContent = "Match result not available.";
         console.log("Match result not available");
     }

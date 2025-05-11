@@ -16,9 +16,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.getElementById("team11").textContent = team1;
     document.getElementById("team22").textContent = team2;
-    console.log("Team 1: ",team1);
-    console.log("Team 2: ",team2);
-    console.log("Toss:",tossWinner," Choose to ",tossChoice);
+    console.log("Team 1: ", team1);
+    console.log("Team 2: ", team2);
+    console.log("Toss:", tossWinner, " Choose to ", tossChoice);
 
     let battingteam;
     if (tossChoice == "batting") {
@@ -78,10 +78,10 @@ function updateScore(run) {
     localStorage.setItem("LastSixBalls", JSON.stringify(LastSixBalls));
 
     updateUI();
-    console.log("Runs: ",runs);
-    console.log("Wickets: ",wickets);
-    console.log("Overs: ",over,".",balls);
-    console.log("RR: ",runRate);
+    console.log("Runs: ", runs);
+    console.log("Wickets: ", wickets);
+    console.log("Overs: ", over, ".", balls);
+    console.log("RR: ", runRate);
 
     checkMatchEnd(); // check result after each update
 }
@@ -135,7 +135,7 @@ function navigateToWinnerPage(url) {
     document.getElementById("loading-screen").style.display = "flex";
     setTimeout(() => {
         window.location.href = url;
-    }, 1500); 
+    }, 1500);
 }
 
 function checkMatchEnd() {
@@ -150,13 +150,17 @@ function checkMatchEnd() {
         let newBatting = (currentbatting === team1) ? team2 : team1;
         let bowlingteam = (currentbatting === team1) ? team1 : team2;
 
-        if (runs >= target) {
-            localStorage.setItem("won-sec-innings",newBatting);
+        if (runs === (target - 1) && (isAllOut || isOversDone)) {
+            localStorage.setItem("matchResult", "tied");
             navigateToWinnerPage("winner.html");
-            
+            disableButtons();
+
+        } else if (runs > target) {
+            localStorage.setItem("won-sec-innings", newBatting);
+            navigateToWinnerPage("winner.html");
             disableButtons();
         } else if (isAllOut || isOversDone) {
-            localStorage.setItem("won-fir-inning",bowlingteam);
+            localStorage.setItem("won-fir-inning", bowlingteam);
             navigateToWinnerPage("winner.html");
             disableButtons();
         }
