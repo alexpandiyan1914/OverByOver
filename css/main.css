@@ -16,7 +16,7 @@ body{
 }
 
 /*Nav bar start*/
-header{
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,46 +24,68 @@ header{
     background: linear-gradient(to left, #0D1B2A, #1B263B, #415A77);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
-.nav-link a{
-    text-decoration: none;
-    color:#F8F8F8;
-    transition: all 0.5s ease;
+
+.logo-png{
+    width: 30px;
+    display: flex;
 }
-.nav-link a:hover{
-    color: #00C3FF;
-    text-shadow: 0px 0px 15px #00C3FF;
-    transform: scale(1.1);
+
+.logo-cls{
+    display: flex;
 }
-header a{
-    color:#f8f8f8;
-    text-decoration: none;
-}
-.logo{
+
+.logo {
     cursor: pointer;
     font-size: 15px;
     letter-spacing: 1px;
     text-transform: uppercase;
     font-weight: bold;
+    margin-left: 8px;
+    margin-top: 4px;
 }
-.nav-link{
+
+.nav-link a {
+    text-decoration: none;
+    color: #F8F8F8;
+    transition: all 0.5s ease;
+}
+
+.nav-link a:hover {
+    color: #00C3FF;
+    text-shadow: 0px 0px 15px #00C3FF;
+    transform: scale(1.1);
+}
+
+header a {
+    color: #f8f8f8;
+    text-decoration: none;
+}
+
+
+.nav-link {
     list-style-type: none;
 }
-.nav-link li{
+
+.nav-link li {
     display: inline-block;
     padding: 5px 15px;
 
 }
-.logout{
+
+.logout {
     padding: 5px 13px;
     background: linear-gradient(to right, #0D1B2A, #1B263B, #415A77);
     color: #f8f8f8;
     border-radius: 50px;
     transition: all 0.5s ease;
+    cursor: pointer;
 }
-.logout:hover{
+
+.logout:hover {
     filter: brightness(0.8);
     box-shadow: 0px 0px 15px #00C3FF;
 }
+
 /*Nav bar end*/
 /*footer starts*/
 footer{
