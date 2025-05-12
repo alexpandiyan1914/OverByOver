@@ -1,0 +1,223 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Parkinsans", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+body {
+    /* background-image: url('../images/ground.jpg'); */
+    background: #f8f8f8;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+/*Nav bar start*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 3%;
+    background: linear-gradient(to left, #0D1B2A, #1B263B, #415A77);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.logo-png{
+    width: 30px;
+    display: flex;
+}
+
+.logo-cls{
+    display: flex;
+}
+
+.logo {
+    cursor: pointer;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-left: 8px;
+    margin-top: 4px;
+}
+
+.nav-link a {
+    text-decoration: none;
+    color: #F8F8F8;
+    transition: all 0.5s ease;
+}
+
+.nav-link a:hover {
+    color: #00C3FF;
+    text-shadow: 0px 0px 15px #00C3FF;
+    transform: scale(1.1);
+}
+
+header a {
+    color: #f8f8f8;
+    text-decoration: none;
+}
+
+
+.nav-link {
+    list-style-type: none;
+}
+
+.nav-link li {
+    display: inline-block;
+    padding: 5px 15px;
+
+}
+
+.logout {
+    padding: 5px 13px;
+    background: linear-gradient(to right, #0D1B2A, #1B263B, #415A77);
+    color: #f8f8f8;
+    border-radius: 50px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.logout:hover {
+    filter: brightness(0.8);
+    box-shadow: 0px 0px 15px #00C3FF;
+}
+
+/*Nav bar end*/
+
+/*footer starts*/
+footer {
+    background: linear-gradient(to left, #0D1B2A, #1B263B, #415A77);
+    box-shadow: 10px 10px 10px rgba(2, 0.5, 0, 0);
+    padding: 30px 20px;
+    margin-top: 106px;
+
+}
+
+footer h4 {
+    color: #f8f8f8;
+    font-weight: lighter;
+    text-align: center;
+}
+/*footer ends*/
+
+#total{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.scorecard_container {
+    text-align: center;
+    background: #E0E1DD;
+    padding: 33px 40px;
+    border-radius: 10px;
+    color: #14274E;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.run_buttons {
+    display: inline-block;
+    /* margin-left: 560px; */
+    margin-top: 50px;
+    padding: 30px 50px 30px 50px;
+    border: 2px solid #E2F1E7;
+    border-radius: 8px;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    background-color: #FF6B6B;
+}
+
+#calculate_head {
+    text-align: center;
+    color: #E2F1E7;
+    margin-bottom: 7px;
+}
+
+#dot {
+    margin-bottom: 5px;
+}
+
+#wide,
+#out,
+#undo,
+#next {
+    margin-bottom: 10px;
+}
+
+.btns {
+    padding: 10px 125px 10px 90px;
+    margin-left: 10px;
+    min-width: 93%;
+    text-align: center;
+    align-content: center;
+    outline: none;
+    background-color: #1B263B;
+    border: 1px solid #F8F8F8;
+    border-radius: 0;
+    color: #F8F8F8;
+    vertical-align: middle;
+    transition: all 0.5s ease;
+    margin-top: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#next:hover {
+    background-color: #4CAF50;
+    border: 0.5px solid #4CAF50;
+    box-shadow: 0px 0px 15px #4CAF50;
+}
+
+#out:hover {
+    background-color: #FF6B6B;
+    box-shadow: 0px 0px 15px #FF6B6B;
+    border: 0.5px solid #FF6B6B;
+}
+
+.btns:hover {
+    background-color: #00C3FF;
+    box-shadow: 0px 0px 15px #00C3FF;
+    border: 0.5px solid #00C3FF;
+    color: black;
+    transform: scale(1.1);
+}
+
+.btns_run {
+    padding: 9px 30px;
+    margin: 10px;
+    margin-right: 10px;
+    min-width: 25%;
+    text-align: center;
+    outline: none;
+    background-color: #14274E;
+    border-radius: 20px;
+    border: 1px solid #F8F8F8;
+    color: white;
+    vertical-align: middle;
+    transition: all 0.7s ease;
+}
+
+.btns_run:hover {
+    background-color: #00C3FF;
+    border: none;
+    box-shadow: 0px 0px 15px #00C3FF;
+    color: black;
+    transform: scale(1.2);
+}
+
+#total {
+    position: relative;
+}
+
+.team {
+    position: absolute;
+    color: #F8F8F8;
+    margin-bottom: 250px;
+    margin-right: 690px;
+}
