@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
-    <link rel='stylesheet' type='text/css' media='screen' href='css/scorecard-2.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/scorecard.css'>
     <script src='js/scorecard.js'></script>
 </head>
 
@@ -71,7 +71,7 @@
             <button class="btns_run" onclick="updateScore(6)">6</button><br>
             <button class="btns" id="wide" onclick="updateScore('wide')"><strong>Wide</strong></button><br>
             <button class="btns" id="out" onclick="updateScore('Out')"><strong>Out</strong></button><br>
-            <button class="btns" id="undo"><strong>Undo</strong></button><br>
+            <button class="btns" id="undo" onclick="undoLastAction()"><strong>Undo</strong></button><br>
             <!-- <button class="btns" id="next"><strong>NextBall</strong></button> -->
         </div>
     </div>

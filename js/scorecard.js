@@ -194,6 +194,33 @@ function checkStats() {
 
 }
 
+function undoLastAction(){
+    if(History.length == 0){
+        alert("No Undo");
+        return;
+    }
+
+    let lastState = History.pop();
+
+    runs = lastState.runs;
+    wickets = lastState.wickets;
+    over = lastState.over;
+    balls = lastState.balls;
+    LastSixBalls = lastState.lastSixBalls;
+
+    runRate = calculateRunRate(runs,over,balls);
+
+    localStorage.setItem("runs", runs);
+    localStorage.setItem("wickets", wickets);
+    localStorage.setItem("over", over);
+    localStorage.setItem("balls", balls);
+    localStorage.setItem("runRate", runRate);
+    localStorage.setItem("LastSixBalls", JSON.stringify(LastSixBalls));
+
+    updateUI();
+
+}
+
 function disableButtons() {
     document.querySelectorAll("button").forEach(btn => btn.disabled = true);
 }
