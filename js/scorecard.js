@@ -54,7 +54,7 @@ function updateScore(run) {
     } else if (run === "⦁") {
         balls++;
     } else if (run === "wide") {
-        runs += 1; // wide adds run but no ball
+        runs += 1; 
     } else {
         runs += run;
         balls++;
@@ -83,7 +83,7 @@ function updateScore(run) {
     console.log("Overs: ", over, ".", balls);
     console.log("RR: ", runRate);
 
-    checkMatchEnd(); // check result after each update
+    checkMatchEnd();
 }
 
 function updateUI() {
