@@ -26,8 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
         firstBattingTeam = (tossWinner === team1) ? team2 : team1;
     }
     if(matchResult === "tied"){
-        document.getElementById("winner").textContent = "Match tied.";
-        console.log("Match result not available");
+        document.getElementById("winner").textContent = "Match tied. please click 'start newmatch' for SUPER OVER";
+        console.log("Match tied");
 
     } else if(winAtSec) {
         document.getElementById("winner").textContent = `${winAtSec} won by ${wonbyWick} wkts`;
