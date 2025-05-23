@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DHTML Registration Form</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f0f0f0;
+      padding: 20px;
+    }
+    form {
+      background: white;
+      padding: 20px;
+      width: 300px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    input[type="text"], input[type="email"], input[type="password"] {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    input[type="submit"] {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #message {
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Registration Form (DHTML)</h2>
+
+<form id="regForm" onsubmit="return validateForm()">
+  <label>Name:</label>
+  <input type="text" id="name" placeholder="Enter name" />
+
+  <label>Email:</label>
+  <input type="email" id="email" placeholder="Enter email" />
+
+  <label>Password:</label>
+  <input type="password" id="password" placeholder="Enter password" />
+
+  <input type="submit" value="Register" />
+</form>
+
+<p id="message"></p>
+
+<script>
+function validateForm() {
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+  const message = document.getElementById("message");
+
+  if (name === "" || email === "" || password === "") {
+    message.style.color = "red";
+    message.innerHTML = "All fields are required!";
+    return false; // Prevent form submission
+  }
+
+  // Simulate successful registration
+  message.style.color = "green";
+  message.innerHTML = `Welcome, ${name}! Registration successful.`;
+  return false; // Still prevent page reload
+}
+</script>
+
+</body>
+</html>
