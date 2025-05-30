@@ -278,19 +278,44 @@ footer h4 {
     margin-bottom: 15px;
 }
 
+.nav-toggle{
+    display: none;
+    background: transparent;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
 
 @media(max-width:880px){
-    .navigation .nav-link{
+    .nav-link{
         flex-direction: column;
         align-items: flex-start;
         position: absolute;
         gap: 1.7rem !important;
         height: 100vh;
-        width: 250px;
-        padding: 5rem;
+        width: 150px;
+        padding:5px;
+        top: 0;
+        right: 0;
+    }
+
+    .nav-toggle{
+        display: block;
+        margin-left: 200px;
+
     }
 }
