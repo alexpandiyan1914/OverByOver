@@ -221,6 +221,15 @@ function undoLastAction(){
 
 }
 
+const navToggle = document.querySelector('.nav-Toggle');
+const navMenu = document.querySelector('.nav-link');
+
+navToggle.addEventListener('click',() =>{
+    navToggle.classList.toggle('active');
+    navMenu.classList.toggle('active');
+
+});
+
 function disableButtons() {
     document.querySelectorAll("button").forEach(btn => btn.disabled = true);
 }
