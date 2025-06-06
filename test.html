@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Responsive Nav</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+    }
+
+    .nav-toggle {
+      display: none;
+      font-size: 28px;
+      cursor: pointer;
+      padding: 10px 20px;
+    }
+
+    .navigation {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      padding: 10px 20px;
+      margin: 0;
+      background-color: #eee;
+    }
+
+    .nav-link a {
+      text-decoration: none;
+      color: black;
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: block;
+      }
+
+      .navigation {
+        display: none;
+        flex-direction: column;
+        background-color: #ddd;
+        width: 100%;
+      }
+
+      .navigation.active {
+        display: flex;
+      }
+
+      .nav-link {
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav-toggle">☰</div>
+
+  <ul class="navigation">
+    <li class="nav-link"><a href="#">Home</a></li>
+    <li class="nav-link"><a href="#">About</a></li>
+    <li class="nav-link"><a href="#">Services</a></li>
+    <li class="nav-link"><a href="#">Contact</a></li>
+  </ul>
+
+  <script>
+    const navToggle = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('.navigation');
+
+    navToggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
