@@ -362,7 +362,6 @@ footer h4 {
     }
 
     .navigation.active {
-        display: flex; 
+        display: block; 
     }
 }
-
