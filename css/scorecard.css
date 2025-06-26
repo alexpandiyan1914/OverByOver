@@ -327,18 +327,21 @@ footer h4 {
 
 @media (max-width: 768px) {
     #total {
-        display: flex;
-        flex-direction: column;
+        display: block;
         align-items: center;
         padding: 20px;
     }
 
     .run_buttons,
     .scorecard_container {
-        margin-top: 20px;
-        width: 100%;
+        margin-top: 30px;
+        width: 100%;    
         box-sizing: border-box;
         align-items: center;
+    }
+
+    .run_buttons{
+        margin-top:90px;
     }
 
     .btns {
@@ -381,5 +384,31 @@ footer h4 {
         background: linear-gradient(to left, #0D1B2A, #1B263B, #415A77);
         box-shadow: 10px 10px 10px rgba(2, 0.5, 0, 0);
         padding: 30px 20px;
+    }
+
+    .team{
+        width: 100%;
+        margin-bottom: 10px;
+        margin-left: 80px;
+    }
+
+    .previous-ball{
+        width: 100%;
+        display: block;
+        margin-top: 10px;
+        margin-left: 100px;
+    }
+    .curr-nrr{
+        margin-top: 10px;
+        width: 100%;
+        display: block;
+        margin-top: 30px;
+        margin-left: 100px;
+    }
+    .target-tracker{
+       width: 100%;
+        display: block;
+        margin-top: 50px;
+        margin-left: 100px;
     }
 }
