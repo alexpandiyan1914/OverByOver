@@ -91,7 +91,6 @@ header a {
 footer{
     background: transparent;
     padding: 30px 20px;
-    margin-top: 101px;
 }
 footer h4{
     color: #f8f8f8;
@@ -108,14 +107,15 @@ footer h4{
     align-items: center;
     height: 400px;
     width: 400px;
-    margin-left: 600px;
-    margin-top: 80px;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 40%;
+    margin-right: 50%;
     border: 2px solid #F8F8F8;
     border-radius: 20px;
     background: transparent;
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    /* visibility: hidden; */
 }
 .login{
     width: 100%;
